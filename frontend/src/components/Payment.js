@@ -63,7 +63,7 @@ const Payment = () => {
     const headers ={
       'Content-Type':"application/json"
     }
-    return fetch('http://localhost:5007/api/users/payment',{
+    return fetch(`${process.env.REACT_APP_BACKEND}/api/users/payment`,{
       method:'POST',
       headers,
       body :JSON.stringify(body)

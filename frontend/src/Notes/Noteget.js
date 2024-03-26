@@ -7,7 +7,7 @@ const AllNotes = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await fetch('http://localhost:5007/api/users/notes');
+      const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/notes`);
       console.log('Response status:', response.status);
       const data = await response.json();
       console.log('Fetched data:', data);

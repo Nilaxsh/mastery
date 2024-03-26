@@ -20,7 +20,7 @@ const LoginOrSignup = () => {
 
     const handleSignup = async () => {
     try {
-          const response = await fetch('http://localhost:5007/api/users/reg', {
+          const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/reg`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,10 @@ const LoginOrSignup = () => {
           const navigate = useNavigate();
           const handleUserSignin = async () => {
           try {
-          const response = await fetch('http://localhost:5007/api/users/user-login', {
+          const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/user-login`, {
+
+          
+
           method: 'POST',
           headers: {
           'Content-Type': 'application/json'
@@ -62,7 +65,7 @@ const LoginOrSignup = () => {
           const data = await response.json();
           console.log(data.message)  
           if (data.role == "admin"){
-            window.location.href = "http://localhost:6002/";
+            window.location.href = `${process.env.REACT_APP_ADMIN}/`;
             toast.success(data.message);
           }else{
           localStorage.setItem('token',data.token)

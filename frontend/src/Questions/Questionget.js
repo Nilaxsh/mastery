@@ -16,7 +16,7 @@ const QuizQuestionList = () => {
   useEffect(() => {
     const fetchQuizQuestions = async () => {
       try {
-        const response = await axios.get('http://localhost:5007/api/users/getquestions');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND}/api/users/getquestions`);
         console.log('API response:', response.data);
 
         if (Array.isArray(response.data.questions)) {

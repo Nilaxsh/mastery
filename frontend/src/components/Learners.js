@@ -21,7 +21,7 @@ const Learners = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:5007/api/users/get-one-user', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/get-one-user`, {
           method: 'GET',
           headers: {
             'Authorization': `${jwttoken}`
@@ -50,7 +50,7 @@ const Learners = () => {
       product
     }
   
-    return fetch('http://localhost:5007/api/users/payment',{
+    return fetch(`${process.env.REACT_APP_BACKEND}/api/users/payment`,{
       method:'POST',
       body :JSON.stringify(body),
       headers: {
@@ -61,7 +61,7 @@ const Learners = () => {
     }).then((response) => {
       setIsPaid(true)
       try{
-        return fetch('http://localhost:5007/api/users/sentmail',{
+        return fetch(`${process.env.REACT_APP_BACKEND}/api/users/sentmail`,{
       method:'POST',
       body :JSON.stringify(body),
       headers: {

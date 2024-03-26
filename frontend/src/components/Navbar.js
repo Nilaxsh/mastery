@@ -35,7 +35,7 @@ const Navbar = () => {
     }
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:5007/api/users/get-one-user', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/get-one-user`, {
           method: 'GET',
           headers: {
             'Authorization': `${jwttoken}`
@@ -60,7 +60,7 @@ const Navbar = () => {
   }, [jwttoken]); 
   const handleLogout = async () => {
     try {
-    const response = await fetch('http://localhost:5007/api/users/logout', {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/logout`, {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json'
